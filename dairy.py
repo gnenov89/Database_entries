@@ -19,6 +19,9 @@ def initialize():
     db.connect()
     db.create_tables([Entry], safe=True)
 
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def menu_loop():
     """Show the menu"""
     choice = None
