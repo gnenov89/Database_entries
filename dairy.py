@@ -63,3 +63,25 @@ def view_entries(search_query=None):
             break
         elif next_action == 'd':
             delete_entries(entry)
+
+
+def delete_entries(entry):
+    """Delete an entry"""
+    if input("Are you sure? [yN]").lower() == 'y':
+        entry.delete_instance()
+        print("Entry deleted!")
+
+
+def search_entries():
+    """Search for a string"""
+    view_entries(input('Search quiery: '))
+
+menu = OrderedDict([
+    ('a', add_entry),
+    ('v', view_entries),
+    ('s', search_entries)
+])
+
+if __name__ == '__main__':
+    initialize()
+    menu_loop()
